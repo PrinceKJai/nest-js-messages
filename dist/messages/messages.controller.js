@@ -8,6 +8,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MessagesController = void 0;
 const common_1 = require("@nestjs/common");
@@ -18,6 +21,12 @@ let MessagesController = class MessagesController {
             { id: 2, message: "World" }
         ];
     }
+    createMessage(body) {
+        console.log("body", body);
+    }
+    getMessageByID(id) {
+        console.log("id", id);
+    }
 };
 exports.MessagesController = MessagesController;
 __decorate([
@@ -26,6 +35,20 @@ __decorate([
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], MessagesController.prototype, "getAllMessages", null);
+__decorate([
+    (0, common_1.Post)(),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], MessagesController.prototype, "createMessage", null);
+__decorate([
+    (0, common_1.Get)('/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], MessagesController.prototype, "getMessageByID", null);
 exports.MessagesController = MessagesController = __decorate([
     (0, common_1.Controller)('messages')
 ], MessagesController);

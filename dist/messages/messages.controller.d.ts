@@ -3,4 +3,6 @@ export declare class MessagesController {
         id: number;
         message: string;
     }[];
+    createMessage(body: any): void;
+    getMessageByID(id: string): void;
 }
