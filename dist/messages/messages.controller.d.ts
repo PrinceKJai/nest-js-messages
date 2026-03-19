@@ -1,8 +1,9 @@
+import { CreateMessageDTO } from './dtos/create-message.dto';
 export declare class MessagesController {
     getAllMessages(): {
         id: number;
         message: string;
     }[];
-    createMessage(body: any): void;
+    createMessage(body: CreateMessageDTO): void;
     getMessageByID(id: string): void;
 }
